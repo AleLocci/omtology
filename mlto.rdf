@@ -1,0 +1,2780 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://mto.com#"
+     xml:base="http://mto.com"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:gufo="http://purl.org/nemo/gufo#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:terms="http://purl.org/dc/terms/">
+    <owl:Ontology rdf:about="http://mto.com">
+        <owl:imports rdf:resource="http://purl.org/nemo/gufo#"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://mto.com#retestHasTestExecution -->
+
+    <owl:ObjectProperty rdf:about="http://mto.com#retestHasTestExecution">
+        <rdfs:domain rdf:resource="http://mto.com#Retest"/>
+        <rdfs:range rdf:resource="http://mto.com#TestExecution"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://mto.com#tensorHasData -->
+
+    <owl:ObjectProperty rdf:about="http://mto.com#tensorHasData">
+        <rdfs:domain rdf:resource="http://mto.com#Tensor"/>
+        <rdfs:range rdf:resource="http://mto.com#Data"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://mto.com#timeRequiredHasResources -->
+
+    <owl:ObjectProperty rdf:about="http://mto.com#timeRequiredHasResources">
+        <rdfs:domain rdf:resource="http://mto.com#TimeRequired"/>
+        <rdfs:range rdf:resource="http://mto.com#Resources"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://mto.com#API -->
+
+    <owl:Class rdf:about="http://mto.com#API">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#VariableCollection"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#APIFault -->
+
+    <owl:Class rdf:about="http://mto.com#APIFault">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#VariableCollection"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#historicallyDependsOn"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://mto.com#API"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#AcceptanceCriteria -->
+
+    <owl:Class rdf:about="http://mto.com#AcceptanceCriteria">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#VariableCollection"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#ActivationFunctionFault -->
+
+    <owl:Class rdf:about="http://mto.com#ActivationFunctionFault">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#VariableCollection"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#Algorithm -->
+
+    <owl:Class rdf:about="http://mto.com#Algorithm">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#BiasNeedInALayer -->
+
+    <owl:Class rdf:about="http://mto.com#BiasNeedInALayer">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#CallingUnsupportedOperationsOnCUDATensor -->
+
+    <owl:Class rdf:about="http://mto.com#CallingUnsupportedOperationsOnCUDATensor">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#ConversionToCUDATensorInsideTheTrainingTestLoo -->
+
+    <owl:Class rdf:about="http://mto.com#ConversionToCUDATensorInsideTheTrainingTestLoo">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#Data -->
+
+    <owl:Class rdf:about="http://mto.com#Data">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#inheresIn"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://mto.com#DataCharacteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#DataCharacteristic -->
+
+    <owl:Class rdf:about="http://mto.com#DataCharacteristic">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Quality"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#inheresIn"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://mto.com#Data"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#DataFault -->
+
+    <owl:Class rdf:about="http://mto.com#DataFault">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#VariableCollection"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#historicallyDependsOn"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://mto.com#Data"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#Dataset -->
+
+    <owl:Class rdf:about="http://mto.com#Dataset">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#VariableCollection"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#historicallyDependsOn"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://mto.com#TrainingDataFault"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#DeprecatedAPI -->
+
+    <owl:Class rdf:about="http://mto.com#DeprecatedAPI">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#DiscardingImportantFeature -->
+
+    <owl:Class rdf:about="http://mto.com#DiscardingImportantFeature">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#EvaluationMeasure -->
+
+    <owl:Class rdf:about="http://mto.com#EvaluationMeasure">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Event"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#isEventProperPartOf"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://mto.com#EvaluationSpecification"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#participatedIn"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://mto.com#ModelEvaluation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#wasCreatedIn"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://mto.com#Task"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#EvaluationProcedure -->
+
+    <owl:Class rdf:about="http://mto.com#EvaluationProcedure">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Event"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#isEventProperPartOf"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://mto.com#EvaluationSpecification"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#EvaluationSpecification -->
+
+    <owl:Class rdf:about="http://mto.com#EvaluationSpecification">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Event"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#isEventProperPartOf"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://mto.com#EvaluationProcedure"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#isEventProperPartOf"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://mto.com#EvaluationMeasure"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#Experiment -->
+
+    <owl:Class rdf:about="http://mto.com#Experiment">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Event"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#isEventProperPartOf"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://mto.com#Run"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#isEventProperPartOf"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://mto.com#Study"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#Failure -->
+
+    <owl:Class rdf:about="http://mto.com#Failure">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#Feature -->
+
+    <owl:Class rdf:about="http://mto.com#Feature">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#GPU -->
+
+    <owl:Class rdf:about="http://mto.com#GPU">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#GPUFault -->
+
+    <owl:Class rdf:about="http://mto.com#GPUFault">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#VariableCollection"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#historicallyDependsOn"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://mto.com#GPU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#GPUTensorIsUsedInsteadOfCPUTensor -->
+
+    <owl:Class rdf:about="http://mto.com#GPUTensorIsUsedInsteadOfCPUTensor">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#Hardware -->
+
+    <owl:Class rdf:about="http://mto.com#Hardware">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#VariableCollection"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#Hyperparameter -->
+
+    <owl:Class rdf:about="http://mto.com#Hyperparameter">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#VariableCollection"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#inheresIn"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://mto.com#HyperparameterSetting"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#HyperparameterFault -->
+
+    <owl:Class rdf:about="http://mto.com#HyperparameterFault">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#VariableCollection"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#historicallyDependsOn"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://mto.com#Hyperparameter"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#HyperparameterSetting -->
+
+    <owl:Class rdf:about="http://mto.com#HyperparameterSetting">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Quality"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#inheresIn"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://mto.com#Hyperparameter"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#ImplemantationCharacteristic -->
+
+    <owl:Class rdf:about="http://mto.com#ImplemantationCharacteristic">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Quality"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#inheresIn"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://mto.com#Implementation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#Implementation -->
+
+    <owl:Class rdf:about="http://mto.com#Implementation">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Event"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#participatedIn"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://mto.com#Algorithm"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#participatedIn"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://mto.com#Hardware"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#participatedIn"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://mto.com#Hyperparameter"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#participatedIn"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://mto.com#Software"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#inheresIn"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://mto.com#ImplemantationCharacteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#ImplementationOfAutomaticTests -->
+
+    <owl:Class rdf:about="http://mto.com#ImplementationOfAutomaticTests">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Event"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#isEventProperPartOf"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://mto.com#TestExecution"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#IncorrectBatchSize -->
+
+    <owl:Class rdf:about="http://mto.com#IncorrectBatchSize">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#IncorrectLearningRate -->
+
+    <owl:Class rdf:about="http://mto.com#IncorrectLearningRate">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#IncorrectNumberOfEpochs -->
+
+    <owl:Class rdf:about="http://mto.com#IncorrectNumberOfEpochs">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#IterationAndImproviment -->
+
+    <owl:Class rdf:about="http://mto.com#IterationAndImproviment">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Event"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#participatedIn"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://mto.com#ResultReport"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#isEventProperPartOf"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://mto.com#ModelUpdate"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#LayerFault -->
+
+    <owl:Class rdf:about="http://mto.com#LayerFault">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#VariableCollection"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#LayerPropertiesFault -->
+
+    <owl:Class rdf:about="http://mto.com#LayerPropertiesFault">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#VariableCollection"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#LayersDimensionsMismatch -->
+
+    <owl:Class rdf:about="http://mto.com#LayersDimensionsMismatch">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#LowQualityTrainingData -->
+
+    <owl:Class rdf:about="http://mto.com#LowQualityTrainingData">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#Metric -->
+
+    <owl:Class rdf:about="http://mto.com#Metric">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#VariableCollection"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#MissingAPICall -->
+
+    <owl:Class rdf:about="http://mto.com#MissingAPICall">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#MissingArgumentScoping -->
+
+    <owl:Class rdf:about="http://mto.com#MissingArgumentScoping">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#MissingAveragePoolingLayer -->
+
+    <owl:Class rdf:about="http://mto.com#MissingAveragePoolingLayer">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#MissingDenseLayer -->
+
+    <owl:Class rdf:about="http://mto.com#MissingDenseLayer">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#MissingDestinationGPUDevice -->
+
+    <owl:Class rdf:about="http://mto.com#MissingDestinationGPUDevice">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#MissingFlattenLayer -->
+
+    <owl:Class rdf:about="http://mto.com#MissingFlattenLayer">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#MissingGlobalVariablesInitialisation -->
+
+    <owl:Class rdf:about="http://mto.com#MissingGlobalVariablesInitialisation">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#MissingRegularizationLossAndWeight -->
+
+    <owl:Class rdf:about="http://mto.com#MissingRegularizationLossAndWeight">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#MissingSoftmaxActivationFunction -->
+
+    <owl:Class rdf:about="http://mto.com#MissingSoftmaxActivationFunction">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#MissingSqueeze -->
+
+    <owl:Class rdf:about="http://mto.com#MissingSqueeze">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#MissingTransferOfDataToGPU -->
+
+    <owl:Class rdf:about="http://mto.com#MissingTransferOfDataToGPU">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#Model -->
+
+    <owl:Class rdf:about="http://mto.com#Model">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#wasCreatedIn"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://mto.com#ModelUpdate"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#inheresIn"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://mto.com#ModelCharacteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#ModelCharacteristic -->
+
+    <owl:Class rdf:about="http://mto.com#ModelCharacteristic">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Quality"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#inheresIn"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://mto.com#Model"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#ModelEvaluation -->
+
+    <owl:Class rdf:about="http://mto.com#ModelEvaluation">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#ModelFault -->
+
+    <owl:Class rdf:about="http://mto.com#ModelFault">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#VariableCollection"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#historicallyDependsOn"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://mto.com#Model"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#ModelPropertiesFault -->
+
+    <owl:Class rdf:about="http://mto.com#ModelPropertiesFault">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#VariableCollection"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#ModelTypeWrongSelection -->
+
+    <owl:Class rdf:about="http://mto.com#ModelTypeWrongSelection">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#ModelUpdate -->
+
+    <owl:Class rdf:about="http://mto.com#ModelUpdate">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Event"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#isEventProperPartOf"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://mto.com#IterationAndImproviment"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#isEventProperPartOf"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://mto.com#Retest"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#wasCreatedIn"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://mto.com#Model"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#MultipleInitializationsOfCNN -->
+
+    <owl:Class rdf:about="http://mto.com#MultipleInitializationsOfCNN">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#NotEnoughTrainingData -->
+
+    <owl:Class rdf:about="http://mto.com#NotEnoughTrainingData">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#OverlappingOutputClassesInTrainingData -->
+
+    <owl:Class rdf:about="http://mto.com#OverlappingOutputClassesInTrainingData">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#Personal -->
+
+    <owl:Class rdf:about="http://mto.com#Personal">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#Requirement -->
+
+    <owl:Class rdf:about="http://mto.com#Requirement">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#VariableCollection"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#Resources -->
+
+    <owl:Class rdf:about="http://mto.com#Resources">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#VariableCollection"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#ResultReport -->
+
+    <owl:Class rdf:about="http://mto.com#ResultReport">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#wasCreatedIn"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://mto.com#TestResultEvaluation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#Retest -->
+
+    <owl:Class rdf:about="http://mto.com#Retest">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Event"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#isEventProperPartOf"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://mto.com#ModelUpdate"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#Risk -->
+
+    <owl:Class rdf:about="http://mto.com#Risk">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#VariableCollection"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#Run -->
+
+    <owl:Class rdf:about="http://mto.com#Run">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Event"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#isEventProperPartOf"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://mto.com#TestExecution"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#participatedIn"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://mto.com#Data"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#participatedIn"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://mto.com#Implementation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#participatedIn"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://mto.com#Model"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#participatedIn"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://mto.com#ModelEvaluation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#isEventProperPartOf"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://mto.com#Experiment"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#SmallRangeOfValuesForAFeature -->
+
+    <owl:Class rdf:about="http://mto.com#SmallRangeOfValuesForAFeature">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#Software -->
+
+    <owl:Class rdf:about="http://mto.com#Software">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#VariableCollection"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#Study -->
+
+    <owl:Class rdf:about="http://mto.com#Study">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Event"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#isEventProperPartOf"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://mto.com#Experiment"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#SuboptimalBatchSize -->
+
+    <owl:Class rdf:about="http://mto.com#SuboptimalBatchSize">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#SuboptimalNetworkStructure -->
+
+    <owl:Class rdf:about="http://mto.com#SuboptimalNetworkStructure">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#SuboptimalNumberOfNeuronsInTheLayer -->
+
+    <owl:Class rdf:about="http://mto.com#SuboptimalNumberOfNeuronsInTheLayer">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#Task -->
+
+    <owl:Class rdf:about="http://mto.com#Task">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#participatedIn"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://mto.com#TestPlaning"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#historicallyDependsOn"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://mto.com#Data"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#wasCreatedIn"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://mto.com#EvaluationMeasure"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#Tensor -->
+
+    <owl:Class rdf:about="http://mto.com#Tensor">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#TensorFault -->
+
+    <owl:Class rdf:about="http://mto.com#TensorFault">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#VariableCollection"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#historicallyDependsOn"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://mto.com#Tensor"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#TensorShapeFault -->
+
+    <owl:Class rdf:about="http://mto.com#TensorShapeFault">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#TestCaseDesign -->
+
+    <owl:Class rdf:about="http://mto.com#TestCaseDesign">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#TestCaseDevelopment -->
+
+    <owl:Class rdf:about="http://mto.com#TestCaseDevelopment">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Event"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#participatedIn"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://mto.com#Dataset"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#participatedIn"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://mto.com#TestCaseDesign"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#TestExecution -->
+
+    <owl:Class rdf:about="http://mto.com#TestExecution">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Event"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#isEventProperPartOf"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://mto.com#ImplementationOfAutomaticTests"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#isEventProperPartOf"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://mto.com#Run"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#TestObjective -->
+
+    <owl:Class rdf:about="http://mto.com#TestObjective">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#VariableCollection"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#TestPlaning -->
+
+    <owl:Class rdf:about="http://mto.com#TestPlaning">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Event"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#participatedIn"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://mto.com#Metric"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#participatedIn"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://mto.com#Requirement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#TestResultEvaluation -->
+
+    <owl:Class rdf:about="http://mto.com#TestResultEvaluation">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Event"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#historicallyDependsOn"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://mto.com#TestExecution"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#wasCreatedIn"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://mto.com#ResultReport"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#TestStrategy -->
+
+    <owl:Class rdf:about="http://mto.com#TestStrategy">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#TimeRequired -->
+
+    <owl:Class rdf:about="http://mto.com#TimeRequired">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Quantity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#TooManyOutputCategories -->
+
+    <owl:Class rdf:about="http://mto.com#TooManyOutputCategories">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#Tools -->
+
+    <owl:Class rdf:about="http://mto.com#Tools">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#TrainingDataFault -->
+
+    <owl:Class rdf:about="http://mto.com#TrainingDataFault">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#VariableCollection"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#historicallyDependsOn"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://mto.com#Dataset"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#UnbalancedTrainingData -->
+
+    <owl:Class rdf:about="http://mto.com#UnbalancedTrainingData">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#WrongAmountTypeOfPoolingInConvolutionalLayer -->
+
+    <owl:Class rdf:about="http://mto.com#WrongAmountTypeOfPoolingInConvolutionalLayer">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#WrongDataParallelismOnGPUs -->
+
+    <owl:Class rdf:about="http://mto.com#WrongDataParallelismOnGPUs">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#WrongDefinedInputShape -->
+
+    <owl:Class rdf:about="http://mto.com#WrongDefinedInputShape">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#WrongDefinedOutputShape -->
+
+    <owl:Class rdf:about="http://mto.com#WrongDefinedOutputShape">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#WrongFilterSizeForAConvolutionalLayer -->
+
+    <owl:Class rdf:about="http://mto.com#WrongFilterSizeForAConvolutionalLayer">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#WrongImplementedDataBatching -->
+
+    <owl:Class rdf:about="http://mto.com#WrongImplementedDataBatching">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#WrongImplementedDataTransferFunctionCPUGPU -->
+
+    <owl:Class rdf:about="http://mto.com#WrongImplementedDataTransferFunctionCPUGPU">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#WrongIndexing -->
+
+    <owl:Class rdf:about="http://mto.com#WrongIndexing">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#WrongInputSampleSizeForLinearLayer -->
+
+    <owl:Class rdf:about="http://mto.com#WrongInputSampleSizeForLinearLayer">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#WrongLabelsForTrainingData -->
+
+    <owl:Class rdf:about="http://mto.com#WrongLabelsForTrainingData">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#WrongLayerType -->
+
+    <owl:Class rdf:about="http://mto.com#WrongLayerType">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#WrongModelInitialization -->
+
+    <owl:Class rdf:about="http://mto.com#WrongModelInitialization">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#WrongNetworkArchitecture -->
+
+    <owl:Class rdf:about="http://mto.com#WrongNetworkArchitecture">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#WrongOutputPadding -->
+
+    <owl:Class rdf:about="http://mto.com#WrongOutputPadding">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#WrongPositionOfDataShuffleOperation -->
+
+    <owl:Class rdf:about="http://mto.com#WrongPositionOfDataShuffleOperation">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#WrongReferenceToGPUDevice -->
+
+    <owl:Class rdf:about="http://mto.com#WrongReferenceToGPUDevice">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#WrongReferenceToOperationalGraph -->
+
+    <owl:Class rdf:about="http://mto.com#WrongReferenceToOperationalGraph">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#WrongSelectionOfFeatures -->
+
+    <owl:Class rdf:about="http://mto.com#WrongSelectionOfFeatures">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#WrongShapeOfInputData -->
+
+    <owl:Class rdf:about="http://mto.com#WrongShapeOfInputData">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#WrongShapeOfInputDataForALayer -->
+
+    <owl:Class rdf:about="http://mto.com#WrongShapeOfInputDataForALayer">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#WrongShapeOfInputDataForAMethod -->
+
+    <owl:Class rdf:about="http://mto.com#WrongShapeOfInputDataForAMethod">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#WrongTypeOfActivationFunction -->
+
+    <owl:Class rdf:about="http://mto.com#WrongTypeOfActivationFunction">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#WrongTypeOfInputData -->
+
+    <owl:Class rdf:about="http://mto.com#WrongTypeOfInputData">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#WrongUsageOfImageDecodingAPI -->
+
+    <owl:Class rdf:about="http://mto.com#WrongUsageOfImageDecodingAPI">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#WrongUsageOfPlacehoderRestorationAPI -->
+
+    <owl:Class rdf:about="http://mto.com#WrongUsageOfPlacehoderRestorationAPI">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mto.com#WrongWeightsInitialization -->
+
+    <owl:Class rdf:about="http://mto.com#WrongWeightsInitialization">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://mto.com#API -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#API">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#APIFault -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#APIFault">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#AcceptanceCriteria -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#AcceptanceCriteria">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#ActivationFunctionFault -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#ActivationFunctionFault">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#Algorithm -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#Algorithm">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#BiasNeedInALayer -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#BiasNeedInALayer">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#CallingUnsupportedOperationsOnCUDATensor -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#CallingUnsupportedOperationsOnCUDATensor">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#ConversionToCUDATensorInsideTheTrainingTestLoo -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#ConversionToCUDATensorInsideTheTrainingTestLoo">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#Data -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#Data">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#DataCharacteristic -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#DataCharacteristic">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#DataFault -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#DataFault">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#Dataset -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#Dataset">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#DeprecatedAPI -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#DeprecatedAPI">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#DiscardingImportantFeature -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#DiscardingImportantFeature">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#EvaluationMeasure -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#EvaluationMeasure">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#EventType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#EvaluationProcedure -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#EvaluationProcedure">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#EventType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#EvaluationSpecification -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#EvaluationSpecification">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#EventType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#Experiment -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#Experiment">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#EventType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#Failure -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#Failure">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#Feature -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#Feature">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#GPU -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#GPU">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#GPUFault -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#GPUFault">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#GPUTensorIsUsedInsteadOfCPUTensor -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#GPUTensorIsUsedInsteadOfCPUTensor">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#Hardware -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#Hardware">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#Hyperparameter -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#Hyperparameter">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#HyperparameterFault -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#HyperparameterFault">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#HyperparameterSetting -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#HyperparameterSetting">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#ImplemantationCharacteristic -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#ImplemantationCharacteristic">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#Implementation -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#Implementation">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#EventType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#ImplementationOfAutomaticTests -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#ImplementationOfAutomaticTests">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#EventType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#IncorrectBatchSize -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#IncorrectBatchSize">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#IncorrectLearningRate -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#IncorrectLearningRate">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#IncorrectNumberOfEpochs -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#IncorrectNumberOfEpochs">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#IterationAndImproviment -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#IterationAndImproviment">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#EventType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#LayerFault -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#LayerFault">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#LayerPropertiesFault -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#LayerPropertiesFault">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#LayersDimensionsMismatch -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#LayersDimensionsMismatch">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#LowQualityTrainingData -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#LowQualityTrainingData">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#Metric -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#Metric">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#MissingAPICall -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#MissingAPICall">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#MissingArgumentScoping -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#MissingArgumentScoping">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#MissingAveragePoolingLayer -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#MissingAveragePoolingLayer">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#MissingDenseLayer -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#MissingDenseLayer">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#MissingDestinationGPUDevice -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#MissingDestinationGPUDevice">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#MissingFlattenLayer -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#MissingFlattenLayer">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#MissingGlobalVariablesInitialisation -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#MissingGlobalVariablesInitialisation">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#MissingRegularizationLossAndWeight -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#MissingRegularizationLossAndWeight">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#MissingSoftmaxActivationFunction -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#MissingSoftmaxActivationFunction">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#MissingSqueeze -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#MissingSqueeze">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#MissingTransferOfDataToGPU -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#MissingTransferOfDataToGPU">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#Model -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#Model">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#ModelCharacteristic -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#ModelCharacteristic">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#ModelEvaluation -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#ModelEvaluation">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#ModelFault -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#ModelFault">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#ModelPropertiesFault -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#ModelPropertiesFault">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#ModelTypeWrongSelection -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#ModelTypeWrongSelection">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#ModelUpdate -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#ModelUpdate">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#EventType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#MultipleInitializationsOfCNN -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#MultipleInitializationsOfCNN">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#NotEnoughTrainingData -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#NotEnoughTrainingData">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#OverlappingOutputClassesInTrainingData -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#OverlappingOutputClassesInTrainingData">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#Personal -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#Personal">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#Requirement -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#Requirement">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#Resources -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#Resources">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#ResultReport -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#ResultReport">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#Retest -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#Retest">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#EventType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#Risk -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#Risk">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#Run -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#Run">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#EventType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#SmallRangeOfValuesForAFeature -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#SmallRangeOfValuesForAFeature">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#Software -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#Software">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#Study -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#Study">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#EventType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#SuboptimalBatchSize -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#SuboptimalBatchSize">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#SuboptimalNetworkStructure -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#SuboptimalNetworkStructure">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#SuboptimalNumberOfNeuronsInTheLayer -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#SuboptimalNumberOfNeuronsInTheLayer">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#Task -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#Task">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#Tensor -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#Tensor">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#TensorFault -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#TensorFault">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#TensorShapeFault -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#TensorShapeFault">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#TestCaseDesign -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#TestCaseDesign">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#TestCaseDevelopment -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#TestCaseDevelopment">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#EventType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#TestExecution -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#TestExecution">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#EventType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#TestObjective -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#TestObjective">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#TestPlaning -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#TestPlaning">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#EventType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#TestResultEvaluation -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#TestResultEvaluation">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#EventType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#TestStrategy -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#TestStrategy">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#TimeRequired -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#TimeRequired">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#TooManyOutputCategories -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#TooManyOutputCategories">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#Tools -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#Tools">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#TrainingDataFault -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#TrainingDataFault">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#UnbalancedTrainingData -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#UnbalancedTrainingData">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#WrongAmountTypeOfPoolingInConvolutionalLayer -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#WrongAmountTypeOfPoolingInConvolutionalLayer">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#WrongDataParallelismOnGPUs -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#WrongDataParallelismOnGPUs">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#WrongDefinedInputShape -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#WrongDefinedInputShape">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#WrongDefinedOutputShape -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#WrongDefinedOutputShape">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#WrongFilterSizeForAConvolutionalLayer -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#WrongFilterSizeForAConvolutionalLayer">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#WrongImplementedDataBatching -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#WrongImplementedDataBatching">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#WrongImplementedDataTransferFunctionCPUGPU -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#WrongImplementedDataTransferFunctionCPUGPU">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#WrongIndexing -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#WrongIndexing">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#WrongInputSampleSizeForLinearLayer -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#WrongInputSampleSizeForLinearLayer">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#WrongLabelsForTrainingData -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#WrongLabelsForTrainingData">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#WrongLayerType -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#WrongLayerType">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#WrongModelInitialization -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#WrongModelInitialization">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#WrongNetworkArchitecture -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#WrongNetworkArchitecture">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#WrongOutputPadding -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#WrongOutputPadding">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#WrongPositionOfDataShuffleOperation -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#WrongPositionOfDataShuffleOperation">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#WrongReferenceToGPUDevice -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#WrongReferenceToGPUDevice">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#WrongReferenceToOperationalGraph -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#WrongReferenceToOperationalGraph">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#WrongSelectionOfFeatures -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#WrongSelectionOfFeatures">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#WrongShapeOfInputData -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#WrongShapeOfInputData">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#WrongShapeOfInputDataForALayer -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#WrongShapeOfInputDataForALayer">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#WrongShapeOfInputDataForAMethod -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#WrongShapeOfInputDataForAMethod">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#WrongTypeOfActivationFunction -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#WrongTypeOfActivationFunction">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#WrongTypeOfInputData -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#WrongTypeOfInputData">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#WrongUsageOfImageDecodingAPI -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#WrongUsageOfImageDecodingAPI">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#WrongUsageOfPlacehoderRestorationAPI -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#WrongUsageOfPlacehoderRestorationAPI">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#WrongWeightsInitialization -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#WrongWeightsInitialization">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#tensorHasData -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#tensorHasData">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#MaterialRelationshipType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mto.com#timeRequiredHasResources -->
+
+    <owl:NamedIndividual rdf:about="http://mto.com#timeRequiredHasResources">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#MaterialRelationshipType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://mto.com#API">
+        <rdfs:label xml:lang="en">API</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#APIFault">
+        <rdfs:label xml:lang="en">API Fault</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#AcceptanceCriteria">
+        <rdfs:label xml:lang="en">Acceptance Criteria</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#ActivationFunctionFault">
+        <rdfs:label xml:lang="en">Activation Function Fault</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#Algorithm">
+        <rdfs:label xml:lang="en">Algorithm</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#BiasNeedInALayer">
+        <rdfs:label xml:lang="en">Bias Need in a Layer</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#CallingUnsupportedOperationsOnCUDATensor">
+        <rdfs:label xml:lang="en">Calling Unsupported Operations on CUDA Tensor</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#ConversionToCUDATensorInsideTheTrainingTestLoo">
+        <rdfs:label xml:lang="en">Conversion to CUDA Tensor Inside The Training/Test Loo</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#Data">
+        <rdfs:label xml:lang="en">Data</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#DataCharacteristic">
+        <rdfs:label xml:lang="en">Data Characteristic</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#DataFault">
+        <rdfs:label xml:lang="en">Data Fault</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#Dataset">
+        <rdfs:label xml:lang="en">Dataset</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#DeprecatedAPI">
+        <rdfs:label xml:lang="en">Deprecated API</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#DiscardingImportantFeature">
+        <rdfs:label xml:lang="en">Discarding Important Feature</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#EvaluationMeasure">
+        <rdfs:label xml:lang="en">Evaluation Measure</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#EvaluationProcedure">
+        <rdfs:label xml:lang="en">Evaluation Procedure</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#EvaluationSpecification">
+        <rdfs:label xml:lang="en">Evaluation Specification</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#Experiment">
+        <rdfs:label xml:lang="en">Experiment</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#Failure">
+        <rdfs:label xml:lang="en">Failure</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#Feature">
+        <rdfs:label xml:lang="en">Feature</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#GPU">
+        <rdfs:label xml:lang="en">GPU</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#GPUFault">
+        <rdfs:label xml:lang="en">GPU Fault</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#GPUTensorIsUsedInsteadOfCPUTensor">
+        <rdfs:label xml:lang="en">GPU Tensor is Used Instead of CPU Tensor </rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#Hardware">
+        <rdfs:label xml:lang="en">Hardware</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#Hyperparameter">
+        <rdfs:label xml:lang="en">Hyperparameter</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#HyperparameterFault">
+        <rdfs:label xml:lang="en">Hyperparameter  Fault</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#HyperparameterSetting">
+        <rdfs:label xml:lang="en">Hyperparameter Setting</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#ImplemantationCharacteristic">
+        <rdfs:label xml:lang="en">Implemantation Characteristic</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#Implementation">
+        <rdfs:label xml:lang="en">Implementation</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#ImplementationOfAutomaticTests">
+        <rdfs:label xml:lang="en">Implementation of Automatic Tests</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#IncorrectBatchSize">
+        <rdfs:label xml:lang="en">Incorrect Batch Size</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#IncorrectLearningRate">
+        <rdfs:label xml:lang="en">Incorrect Learning Rate</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#IncorrectNumberOfEpochs">
+        <rdfs:label xml:lang="en">Incorrect Number of Epochs</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#IterationAndImproviment">
+        <rdfs:label xml:lang="en">Iteration and Improviment</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#LayerFault">
+        <rdfs:label xml:lang="en">Layer Fault</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#LayerPropertiesFault">
+        <rdfs:label xml:lang="en">Layer Properties Fault</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#LayersDimensionsMismatch">
+        <rdfs:label xml:lang="en">Layers Dimensions Mismatch</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#LowQualityTrainingData">
+        <rdfs:label xml:lang="en">Low Quality Training Data</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#Metric">
+        <rdfs:label xml:lang="en">Metric</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#MissingAPICall">
+        <rdfs:label xml:lang="en">Missing API Call</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#MissingArgumentScoping">
+        <rdfs:label xml:lang="en">Missing Argument Scoping</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#MissingAveragePoolingLayer">
+        <rdfs:label xml:lang="en">Missing Average Pooling Layer</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#MissingDenseLayer">
+        <rdfs:label xml:lang="en">Missing Dense Layer</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#MissingDestinationGPUDevice">
+        <rdfs:label xml:lang="en">Missing Destination GPU Device</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#MissingFlattenLayer">
+        <rdfs:label xml:lang="en">Missing Flatten Layer</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#MissingGlobalVariablesInitialisation">
+        <rdfs:label xml:lang="en">Missing Global Variables Initialisation</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#MissingRegularizationLossAndWeight">
+        <rdfs:label xml:lang="en">Missing Regularization (Loss and Weight)</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#MissingSoftmaxActivationFunction">
+        <rdfs:label xml:lang="en">Missing Softmax Activation Function</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#MissingSqueeze">
+        <rdfs:label xml:lang="en">Missing Squeeze</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#MissingTransferOfDataToGPU">
+        <rdfs:label xml:lang="en">Missing Transfer of Data to GPU</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#Model">
+        <rdfs:label xml:lang="en">Model</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#ModelCharacteristic">
+        <rdfs:label xml:lang="en">Model Characteristic</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#ModelEvaluation">
+        <rdfs:label xml:lang="en">Model Evaluation</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#ModelFault">
+        <rdfs:label xml:lang="en">Model Fault</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#ModelPropertiesFault">
+        <rdfs:label xml:lang="en">Model Properties Fault</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#ModelTypeWrongSelection">
+        <rdfs:label xml:lang="en">Model Type Wrong Selection</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#ModelUpdate">
+        <rdfs:label xml:lang="en">Model Update</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#MultipleInitializationsOfCNN">
+        <rdfs:label xml:lang="en">Multiple Initializations of CNN </rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#NotEnoughTrainingData">
+        <rdfs:label xml:lang="en">Not Enough Training Data</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#OverlappingOutputClassesInTrainingData">
+        <rdfs:label xml:lang="en">Overlapping Output Classes in Training Data</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#Personal">
+        <rdfs:label xml:lang="en">Personal</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#Requirement">
+        <rdfs:label xml:lang="en">Requirement</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#Resources">
+        <rdfs:label xml:lang="en">Resources</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#ResultReport">
+        <rdfs:label xml:lang="en">Result Report</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#Retest">
+        <rdfs:label xml:lang="en">Retest</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#Risk">
+        <rdfs:label xml:lang="en">Risk</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#Run">
+        <rdfs:comment xml:lang="en">A machine learning experiment that captures the specific conditions and results of the execution. Since we believe that this element executes its actions over a specific period of time, we refer to it as an event class, gUFO.</rdfs:comment>
+        <rdfs:label xml:lang="en">Run</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#SmallRangeOfValuesForAFeature">
+        <rdfs:label xml:lang="en">Small Range of Values for a Feature</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#Software">
+        <rdfs:label xml:lang="en">Software</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#Study">
+        <rdfs:label xml:lang="en">Study</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#SuboptimalBatchSize">
+        <rdfs:label xml:lang="en">Suboptimal Batch Size</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#SuboptimalNetworkStructure">
+        <rdfs:label xml:lang="en">Suboptimal Network Structure</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#SuboptimalNumberOfNeuronsInTheLayer">
+        <rdfs:label xml:lang="en">Suboptimal Number of Neurons In the Layer</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#Task">
+        <rdfs:label xml:lang="en">Task</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#Tensor">
+        <rdfs:label xml:lang="en">Tensor</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#TensorFault">
+        <rdfs:label xml:lang="en">Tensor Fault</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#TensorShapeFault">
+        <rdfs:label xml:lang="en">Tensor Shape Fault</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#TestCaseDesign">
+        <rdfs:label xml:lang="en">Test Case Design</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#TestCaseDevelopment">
+        <rdfs:label xml:lang="en">Test Case Development</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#TestExecution">
+        <rdfs:label xml:lang="en">Test Execution</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#TestObjective">
+        <rdfs:label xml:lang="en">Test Objective</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#TestPlaning">
+        <rdfs:label xml:lang="en">Test Planing</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#TestResultEvaluation">
+        <rdfs:label xml:lang="en">Test Result Evaluation</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#TestStrategy">
+        <rdfs:label xml:lang="en">Test Strategy</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#TimeRequired">
+        <rdfs:label xml:lang="en">Time Required</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#TooManyOutputCategories">
+        <rdfs:label xml:lang="en">Too Many Output Categories</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#Tools">
+        <rdfs:label xml:lang="en">Tools</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#TrainingDataFault">
+        <rdfs:label xml:lang="en">Training Data Fault</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#UnbalancedTrainingData">
+        <rdfs:label xml:lang="en">Unbalanced Training Data</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#WrongAmountTypeOfPoolingInConvolutionalLayer">
+        <rdfs:label xml:lang="en">Wrong Amount &amp; Type of Pooling In Convolutional Layer</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#WrongDataParallelismOnGPUs">
+        <rdfs:label xml:lang="en">Wrong Data Parallelism on GPUs</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#WrongDefinedInputShape">
+        <rdfs:label xml:lang="en">Wrong Defined Input Shape</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#WrongDefinedOutputShape">
+        <rdfs:label xml:lang="en">Wrong Defined Output Shape</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#WrongFilterSizeForAConvolutionalLayer">
+        <rdfs:label xml:lang="en">Wrong Filter Size for a Convolutional Layer</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#WrongImplementedDataBatching">
+        <rdfs:label xml:lang="en">Wrong Implemented Data Batching</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#WrongImplementedDataTransferFunctionCPUGPU">
+        <rdfs:label xml:lang="en">Wrong Implemented Data Transfer Function(CPU-GPU)</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#WrongIndexing">
+        <rdfs:label xml:lang="en">Wrong Indexing</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#WrongInputSampleSizeForLinearLayer">
+        <rdfs:label xml:lang="en">Wrong Input Sample Size for Linear Layer</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#WrongLabelsForTrainingData">
+        <rdfs:label xml:lang="en">Wrong Labels for Training Data</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#WrongLayerType">
+        <rdfs:label xml:lang="en">Wrong Layer Type</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#WrongModelInitialization">
+        <rdfs:label xml:lang="en">Wrong Model Initialization</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#WrongNetworkArchitecture">
+        <rdfs:label xml:lang="en">Wrong Network Architecture</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#WrongOutputPadding">
+        <rdfs:label xml:lang="en">Wrong Output Padding</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#WrongPositionOfDataShuffleOperation">
+        <rdfs:label xml:lang="en">Wrong Position of Data Shuffle Operation</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#WrongReferenceToGPUDevice">
+        <rdfs:label xml:lang="en">Wrong Reference to GPU Device</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#WrongReferenceToOperationalGraph">
+        <rdfs:label xml:lang="en">Wrong Reference to Operational Graph</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#WrongSelectionOfFeatures">
+        <rdfs:label xml:lang="en">Wrong Selection of Features</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#WrongShapeOfInputData">
+        <rdfs:label xml:lang="en">Wrong Shape of Input Data</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#WrongShapeOfInputDataForALayer">
+        <rdfs:label xml:lang="en">Wrong Shape Of Input Data for a Layer</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#WrongShapeOfInputDataForAMethod">
+        <rdfs:label xml:lang="en">Wrong Shape of Input Data for a Method</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#WrongTypeOfActivationFunction">
+        <rdfs:label xml:lang="en">Wrong Type of Activation Function</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#WrongTypeOfInputData">
+        <rdfs:label xml:lang="en">Wrong Type of Input Data</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#WrongUsageOfImageDecodingAPI">
+        <rdfs:label xml:lang="en">Wrong Usage of Image Decoding API</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#WrongUsageOfPlacehoderRestorationAPI">
+        <rdfs:label xml:lang="en">Wrong Usage of Placehoder Restoration API</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://mto.com#WrongWeightsInitialization">
+        <rdfs:label xml:lang="en">Wrong Weights Initialization</rdfs:label>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+
